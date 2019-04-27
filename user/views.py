@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect
 from user.forms import RegisterForm,LoginForm
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import login,authenticate
+from django.contrib.auth import login,authenticate,logout
+
 # Create your views here.
 def register(request):
     form = RegisterForm(request.POST or None)
@@ -19,7 +20,7 @@ def register(request):
         return redirect("index")
     context = {
             "form" : form
-        }
+    }
     return render(request,"register.html",context)
 
 def loginUser(request):
@@ -43,6 +44,9 @@ def loginUser(request):
         login(request,user)
         return redirect("index")  
     return render(request,"login.html",context)
+
 def logoutUser(request):
-    pass
+    logout(request)
+    messages.success(request,"Başarıyla Çıkış Yaptınız.")
+    return redirect("index")
  
