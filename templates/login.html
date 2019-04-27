@@ -7,9 +7,8 @@
         <h3>Giriş Yap</h3>
         <hr>
         <form method = "post">
-            {% csrf_token %}
-            
-            
+            {% csrf_token %} 
+            {{form.as_p}}
             <br>
             <button type = "submit" class = "btn btn-danger">Giriş Yap</button>
         </form>
