@@ -2,18 +2,14 @@
 
 {% block body %}
 
-<div class="jumbotron text-center">       
-        <!--<div class="progress">
-        <div class="progress-bar bg-danger" role="progressbar" style="width: 31%" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <br>-->
-        <p>Örnek Cümle : <b>I have Apple</b><p>
-        <p>Kelime Yapısı : <b>İsim</b><p>
-        <h2>Apple</h2>          
+<div class="jumbotron text-center">             
+        <br>
+        <p>Örnek Cümle : <b>{{kelime.sentence}}</b><p>
+        <p>Kelime Yapısı : <b>{{kelime.structure}}</b><p>
+        <h2>{{kelime.engWord}}</h2>          
         <input type="text" name="fname">
         <br><br>  
-        <button type = "submit" class = "btn btn-outline-success">Cevapla</button>       <button type = "submit" class = "btn btn-outline-danger">Soruyu Geç</button>
-        
+        <button type = "submit" class = "btn btn-outline-success">Cevapla</button>       <button type = "submit" class = "btn btn-outline-danger">Soruyu Geç</button>     
 </div>
 
 {% endblock body %}
