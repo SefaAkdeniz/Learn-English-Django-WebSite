@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from kelime.models import Kelime,KelimeBilgi
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 # Create your views here.
 def index(request):
@@ -19,12 +20,10 @@ def question(request):
         print(dogru)
         print(cevap)
         print(soru)
-        
 
-        
         if dogru.trWord.upper()==cevap.upper():
             messages.success(request,"Tebrikler Doğru Bildiniz..")
-            Kayit=KelimeBilgi(user=request.user,word=dogru,level=1)
+            Kayit=KelimeBilgi(user=request.user,word=dogru,level=1,date=timezone.now()+timezone.timedelta(days=1))
             Kayit.save()
         else:
             messages.info(request,"Maalesef Yanlış Yaptınız..")
@@ -44,3 +43,15 @@ def question(request):
             return redirect("index")
 
     return render(request,"question.html",{"kelime":kelime})
+
+
+
+
+
+
+@login_required(login_url = "user:login")
+def testing(request):
+
+
+
+    return render(request,"testing.html")

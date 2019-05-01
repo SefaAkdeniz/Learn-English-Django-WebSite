@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="jumbotron text-center">       
+        <br>
+        <p>Örnek Cümle : <b>{{kelime.sentence}}</b><p>
+        <p>Kelime Yapısı : <b>{{kelime.structure}}</b><p>                
+        <form>
+        <input type="text" name="soru" value={{kelime.engWord}} class="word" readonly>
+        <p><p>
+        <p><input type="text" name="answer"><p>
+        <button type = "submit" class = "btn btn-outline-success">Cevapla</button>       <button type = "submit" class = "btn btn-outline-danger">Soruyu Geç</button>
+        </form> 
+</div>
+
+{% endblock body %}
