@@ -45,7 +45,7 @@ def testing(request):
     count=KelimeBilgi.objects.filter(user=request.user).count()
     if count==0:
         messages.info(request,"İlk Öncelikle Kelime Öğrenmelisiniz")
-        return redirect("question")
+        return redirect("index")
 
     cevap=request.GET.get("answer")
     soru=request.GET.get("soru") 
