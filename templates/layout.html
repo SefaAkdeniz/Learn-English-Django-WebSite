@@ -18,34 +18,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
-      
     <title>Learn English</title>
 </head>
 <body>  
-        {% include "includes/navbar.html" %}
-
-        <div style = "margin-top : 100px; margin-bottom:100px;" class = "container">
-                
-            {% if messages %}
-                
-                    {% for message in messages %}
-                    {% if message.tags == "info" %}
+    {% include "includes/navbar.html" %}
+    <div style = "margin-top : 100px; margin-bottom:100px;" class = "container">             
+        {% if messages %}               
+            {% for message in messages %}
+                {% if message.tags == "info" %}
                     <div class="alert alert-danger">{{ message }}</div>
-                    {% else %}
+                {% else %}
                     <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-
-                    {% endif %}
-
-
-                    {% endfor %}
-                
                 {% endif %}
-                
-            {% block body %}
-            
-            {% endblock body %}
+            {% endfor %}               
+        {% endif %}      
+                 
+        {% block body %}
 
-        </div>
+        {% endblock body %}
+    </div>
     <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js'%}"></script>
 </body>

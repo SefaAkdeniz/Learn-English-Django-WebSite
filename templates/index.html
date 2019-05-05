@@ -6,16 +6,13 @@
         <h3>Learn English Projesine Hoşgeldiniz...</h3>
         <br>
         <p>İsmail Sefa AKDENİZ 172802032</p>
-</div>
-
-        
-
-<p>
+        <p>
         {% if request.user.is_authenticated %}
                 Giriş Yapılmış, {{request.user.username}}
         {% else %}
                 Giriş Yapılmamış
         {% endif %}
-</p>
+        </p>
+</div>
 
 {% endblock body %}

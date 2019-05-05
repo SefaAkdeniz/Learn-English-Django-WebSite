@@ -1,10 +1,9 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-        
-        <a class="navbar-brand" href="{% url 'index'  %}">Learn English</a>
-        
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">       
+        <a class="navbar-brand" href="{% url 'index'  %}">Learn English</a>      
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul>
                 <li><a href="{% url 'index'  %}">Anasayfa</a></li>
+                <li><a href="/admin">Admin</a></li>
                 <li><a href="/question">Öğren</a></li>
                 <li><a href="/testing">Test Et</a></li>
                 {% if request.user.is_authenticated %}
