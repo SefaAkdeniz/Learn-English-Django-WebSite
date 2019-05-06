@@ -1,18 +1,20 @@
 {% extends "layout.html" %}
+{% load static %}
 
 {% block body %}
 
-<div class="jumbotron text-center">
-        <h3>Learn English Projesine Hoşgeldiniz...</h3>
+<div class="jumbotron text-center" style="background-color:#333333">
+        <h3 style="color:white"><b>Learn English Projesine Hoşgeldiniz...</b></h3>
         <br>
-        <p>İsmail Sefa AKDENİZ 172802032</p>
-        <p>
+        <p style="color:white"><b>İsmail Sefa AKDENİZ 172802032</b></p>
+        <p style="color:white">
         {% if request.user.is_authenticated %}
-                Giriş Yapılmış, {{request.user.username}}
+                <b>Hoş Geldin, {{request.user.username}}</b>
         {% else %}
                 Giriş Yapılmamış
         {% endif %}
         </p>
+        <img src="{% static 'img/index.jpg' %}" class="img-fluid" alt="Girl in a jacket">   
 </div>
 
 {% endblock body %}

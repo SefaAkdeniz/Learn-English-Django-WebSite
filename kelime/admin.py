@@ -3,6 +3,7 @@ from django.contrib import admin
 from kelime.models import Kelime,KelimeBilgi
 
 admin.site.register(KelimeBilgi)
+admin.site.site_header='Learn English Admin Panel'
 
 # Register your models here.
 @admin.register(Kelime)
