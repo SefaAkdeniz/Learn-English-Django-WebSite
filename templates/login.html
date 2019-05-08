@@ -4,10 +4,10 @@
 
 {% load crispy_forms_tags %}
 <div class="row">
-    <div class="col-md-6 offset-md-3">
-        <h3>Giriş Yap</h3>
+    <div class="col-md-6 offset-md-3" style="background-color:#333333">
+        <h3 style="color:white">Giriş Yap</h3>
         <hr>
-        <form method = "post">
+        <form method = "post" style="color:white">
             {% csrf_token %}          
             {{form|crispy}}
             <button type = "submit" class = "btn btn-danger">Giriş Yap</button>

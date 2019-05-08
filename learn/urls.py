@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
 from kelime import views
 
 urlpatterns = [
@@ -23,6 +22,7 @@ urlpatterns = [
     path('', views.index,name="index"),
     path('question/', views.question,name="question"),
     path('testing/', views.testing,name="testing"),
+    path('statistics/', views.statistics,name="statistics"),
     path('user/', include("user.urls")),
 
 ]

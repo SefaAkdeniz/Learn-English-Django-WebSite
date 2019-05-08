@@ -77,3 +77,7 @@ def testing(request):
         messages.success(request,"Şuanlık Testedilecek Kelimeniz Yok")
         return redirect("index")     
     return render(request,"testing.html",{"kelime":kelime})
+
+@login_required(login_url = "user:login")
+def statistics(request):
+    return render(request,"statistics.html")

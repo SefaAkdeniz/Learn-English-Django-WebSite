@@ -2,10 +2,10 @@
 
 {% block body %}
 
-<div class="jumbotron text-center">       
+<div class="jumbotron text-center" style="background-color:#333333">       
         <br>
-        <p><b>Örnek Cümle</b> : {{kelime.sentence}}<p>
-        <p><b>Kelime Yapısı</b> : {{kelime.structure}}<p>                
+        <p style="color:white"><b>Örnek Cümle</b> : {{kelime.sentence}}<p>
+        <p style="color:white"><b>Kelime Yapısı</b> : {{kelime.structure}}<p>                
         <form>
                 <input type="text" name="soru" value={{kelime.engWord}} class="word" readonly>
                 <p>

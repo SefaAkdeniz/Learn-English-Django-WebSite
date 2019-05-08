@@ -1,11 +1,9 @@
 from django.contrib import admin
-
 from kelime.models import Kelime,KelimeBilgi
 
-admin.site.register(KelimeBilgi)
+# Register your models here.
 admin.site.site_header='Learn English Admin Panel'
 
-# Register your models here.
 @admin.register(Kelime)
 class KelimeAdmin(admin.ModelAdmin):
 
@@ -16,4 +14,10 @@ class KelimeAdmin(admin.ModelAdmin):
     class Meta:
         model=Kelime
 
-
+@admin.register(KelimeBilgi)
+class KelimeBilgiAdmin(admin.ModelAdmin):
+    list_display=["user","word","date","level"]
+    list_display_links=["user","word","date","level"]
+    list_filter=["user","word","date","level"]
+    class Meta:
+        model=KelimeBilgi
