@@ -1,24 +1,9 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <style>
-    .body{
-        background:gray;
-    } 
-    </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>Learn English</title>
-</head>
-<body class="body">  
-    {% include "includes/navbar.html" %}
-    <div style = "margin-top : 100px; margin-bottom:100px;" class = "container">  
-    </div>           
+{% extends "layout.html" %}
 
-    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js'%}"></script>
-</body>
-</html>
+{% block body %}
+
+<div class="jumbotron text-center" style="background-color:#333333">       
+
+</div>
+
+{% endblock body %}
