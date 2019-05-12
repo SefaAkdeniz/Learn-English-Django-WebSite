@@ -14,8 +14,13 @@ class Kelime(models.Model):
 
 
 class KelimeBilgi(models.Model):
-    word = models.ForeignKey(
-        Kelime, on_delete=models.CASCADE, verbose_name="Kelime")
+    word = models.ForeignKey(Kelime, on_delete=models.CASCADE, verbose_name="Kelime")
     user = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Kullanıcı")
     date = models.DateTimeField(blank=True, null=True, verbose_name="Sorulacak Tarih")
     level = models.IntegerField(verbose_name="Seviyesi")
+
+
+class TamamlananKelime(models.Model):
+    word = models.ForeignKey(Kelime, on_delete=models.CASCADE, verbose_name="Kelime")
+    user = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Kullanıcı")
+    date = models.DateTimeField(blank=True, null=True, verbose_name="Ezberleme Tarih")
