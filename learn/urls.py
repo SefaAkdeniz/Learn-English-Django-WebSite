@@ -24,5 +24,4 @@ urlpatterns = [
     path('testing/', views.testing, name="testing"),
     path('statistics/', views.statistics, name="statistics"),
     path('user/', include("user.urls")),
-
 ]

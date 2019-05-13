@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Kelime',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,primary_key=True, serialize=False, verbose_name='ID')),
                 ('engWord', models.CharField(max_length=25)),
                 ('trWord', models.CharField(max_length=25)),
                 ('sentence', models.TextField()),

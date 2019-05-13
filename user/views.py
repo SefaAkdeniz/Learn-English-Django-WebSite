@@ -6,7 +6,6 @@ from django.contrib.auth import login, authenticate, logout
 
 # Create your views here.
 
-
 def register(request):
     form = RegisterForm(request.POST or None)
     if form.is_valid():

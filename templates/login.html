@@ -5,14 +5,18 @@
 {% load crispy_forms_tags %}
 <div class="row">
     <div class="col-md-6 offset-md-3" style="background-color:#333333">
-    
+        <br>
         <h3 style="color:white">Giriş Yap</h3>
         <hr>
         <form method = "post" style="color:white">
             {% csrf_token %}          
             {{form|crispy}}
             <button type = "submit" class = "btn btn-danger">Giriş Yap</button>
+            <br>
+            <br>
+            Hesabın yok mu? <a href="{% url 'user:register' %}">Kaydol</a>
         </form>
+        <br>
     </div>
 </div>
 

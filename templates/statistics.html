@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">    
     <title>Learn English</title>
     <script>
-
     window.onload = function () {
     var options = {
 	title: {text: "Son 3 Yıl Ezberleme Sayıları"},
@@ -23,10 +22,10 @@
 	}
 	]
     };
-$("#chartContainer").CanvasJSChart(options);
+$("#yearChartContainer").CanvasJSChart(options);
     var options = {
 	title: {
-		text: "Aylık Ezberleme Sayıları"              
+		text:"{{currentYear}}"+ " Yılı Aylık Ezberleme Sayıları"              
 	},
 	data: [              
 	{
@@ -48,10 +47,10 @@ $("#chartContainer").CanvasJSChart(options);
 	}
 	]
 };
-$("#c").CanvasJSChart(options);
+$("#monthChartContainer").CanvasJSChart(options);
     var options = {
 	title: {
-		text: "Haftalık Ezberleme Sayıları"              
+		text: "{{currentYear}}"+" "+"{{currentMonth}}"+" Ayı Günlük Ezberleme Sayıları   "    
 	},
 	data: [              
 	{
@@ -86,42 +85,34 @@ $("#c").CanvasJSChart(options);
             { label: "27 "+"{{currentMonth}}"+" "+"{{currentYear}}",  y: {{dayCount.26}} },
             { label: "28 "+"{{currentMonth}}"+" "+"{{currentYear}}",  y: {{dayCount.27}} },
             { label: "29 "+"{{currentMonth}}"+" "+"{{currentYear}}",  y: {{dayCount.28}} },
-            { label: "30 "+"{{currentMonth}}"+" "+"{{currentYear}}",  y: {{dayCount.29}} },
-            
-
+            { label: "30 "+"{{currentMonth}}"+" "+"{{currentYear}}",  y: {{dayCount.29}} },       
 		]
 	}
 	]
 };
-$("#a").CanvasJSChart(options);
+$("#dayChartContainer").CanvasJSChart(options);
 }
-
-
-
-
 </script>
-
 <style>
 .body{
         background:gray;
     } 
 </style>
-
 </head>
 <body class="body">
 {% include "includes/navbar.html" %}
 <div style = "margin-top : 100px; margin-bottom:100px;" class = "container">
     <div class="jumbotron text-center" style="background-color:#333333">   
-        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        <div id="yearChartContainer" style="height: 370px; width: 100%;"></div>
     </div>
     <div class="jumbotron text-center" style="background-color:#333333">   
-        <div id="c" style="height: 370px; width: 100%;"></div>
+        <div id="monthChartContainer" style="height: 370px; width: 100%;"></div>
     </div>
     <div class="jumbotron text-center" style="background-color:#333333">   
-        <div id="a" style="height: 370px; width: 100%;"></div>
+        <div id="dayChartContainer" style="height: 370px; width: 100%;"></div>
     </div>
 </div>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<script type="text/javascript" src="{% static 'js/jquery-1.11.1.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.canvasjs.min.js'%}"></script>
 </body>
 </html>

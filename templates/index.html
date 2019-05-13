@@ -6,10 +6,10 @@
 <div class="jumbotron text-center" style="background-color:#333333">
         <h3 style="color:white"><b>Learn English Projesine Hoşgeldiniz...</b></h3>
         <br>
-        <p style="color:white"><b>İsmail Sefa AKDENİZ 172802032</b></p>
+        <p style="color:white">İsmail Sefa AKDENİZ 172802032</p>
         <p style="color:white">
         {% if request.user.is_authenticated %}
-                <b>Hoş Geldin, {{request.user.username}}</b>
+                Hoş Geldin, {{request.user.username}}
         {% else %}
                 Giriş Yapılmamış
         {% endif %}

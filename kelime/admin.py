@@ -4,7 +4,6 @@ from kelime.models import Kelime, KelimeBilgi, TamamlananKelime
 # Register your models here.
 admin.site.site_header = 'Learn English Admin Panel'
 
-
 @admin.register(Kelime)
 class KelimeAdmin(admin.ModelAdmin):
 
@@ -25,6 +24,7 @@ class KelimeBilgiAdmin(admin.ModelAdmin):
 
     class Meta:
         model = KelimeBilgi
+
 
 @admin.register(TamamlananKelime)
 class TamamlananKelimeAdmin(admin.ModelAdmin):

@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-
 class Kelime(models.Model):
     engWord = models.CharField(max_length=25, verbose_name="İngilizce")
     trWord = models.CharField(max_length=25, verbose_name="Türkçe")
