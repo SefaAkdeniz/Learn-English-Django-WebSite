@@ -21,14 +21,16 @@ def question(request):
     
     if cevap:
         dogru = Kelime.objects.filter(engWord=soru).first()
-        if dogru.trWord.upper() == cevap.upper():
+        print(dogru.trWord.upper().replace(" ",""))
+        print(cevap.upper().replace(" ",""))
+        if dogru.trWord.upper().replace(" ","") == cevap.upper().replace(" ",""):
             messages.success(request, "Tebrikler! Doğru Bildiniz.")
-            Kayit = KelimeBilgi(user=request.user, word=dogru, level=1, date=timezone.now(
-            ) + timedelta(days=1)+timedelta(hours=3))
+            Kayit = KelimeBilgi(user=request.user, word=dogru, level=1, date=timezone.now() + timedelta(days=1)+timedelta(hours=3))
             Kayit.save()
             return redirect("question")
         else:
             messages.info(request, "Tüh! Yanlış Cevap.")
+            messages.info(request,"Doğru Cevap : " + dogru.trWord.capitalize())
 
     control = True
     while control:
@@ -56,16 +58,15 @@ def testing(request):
 
     count = KelimeBilgi.objects.filter(user=request.user).count()
     if count == 0:
-        messages.info(request, "İlk Öncelikle Kelime Öğrenmelisiniz")
+        messages.info(request, "Öncelikle Kelime Öğrenmelisiniz")
         return redirect("index")
 
     cevap = request.GET.get("answer")
     soru = request.GET.get("soru")
     if cevap:
         dogru = Kelime.objects.filter(engWord=soru).first()
-        kayit = KelimeBilgi.objects.filter(
-            user=request.user, word_id=dogru.id).first()
-        if dogru.trWord.upper() == cevap.upper():
+        kayit = KelimeBilgi.objects.filter(user=request.user, word_id=dogru.id).first()
+        if dogru.trWord.upper().replace(" ","") == cevap.upper().replace(" ",""):
             messages.success(request, "Tebrikler! Doğru Bildiniz.")
             if kayit.level == 1:
                 kayit.level = 2
@@ -81,12 +82,12 @@ def testing(request):
                 kayit.save()
             elif kayit.level == 4:
                 messages.success(request, "Tebrikler! " +soru + " Kelimesini Ezberlediniz.")
-                Tamamlanan = TamamlananKelime(
-                    user=request.user, word=dogru, date=timezone.now())
+                Tamamlanan = TamamlananKelime(user=request.user, word=dogru, date=timezone.now())
                 Tamamlanan.save()
                 kayit.delete()
         else:
             messages.info(request, "Tüh! Yanlış Cevap.")
+            messages.info(request,"Doğru Cevap : " + dogru.trWord.capitalize())
             kayit.level = 1
             kayit.date = timezone.now() + timedelta(days=1)+timedelta(hours=3)
             kayit.save()
@@ -98,7 +99,9 @@ def testing(request):
     id = KelimeBilgi.objects.filter(user=request.user).order_by("date").first()
     kelime = Kelime.objects.filter(id=id.word_id).first()
     if id.date.toordinal() > datetime.now().toordinal():
-        messages.success(request, "Şuanlık Testedilecek Kelimeniz Yok")
+        messages.success(request, "Test İçin " + str(formats.date_format(id.date, "DATE_FORMAT")) + " Gününde Giriniz.")
+        print(id.date)
+        print(datetime.now())
         return redirect("index")
     return render(request, "testing.html", {"kelime": kelime})
 
