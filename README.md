@@ -1,7 +1,5 @@
 # Learn English Django WebSite
 
-## Web Sitesi Linki : http://ismailsefa.pythonanywhere.com/
-
 ## Kullanılan Teknolojiler
 Programming Language : Python <br>
 Web Application Framework : Django <br>
